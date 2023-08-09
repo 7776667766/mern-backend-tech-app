@@ -1,14 +1,10 @@
 
-require('dotenv').config()
-
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const app= express()
 const path =require('path')
 const {logger}=require('./middleware/logger');
 const errorHandler=require('./middleware/errorHandler')
-
 const cookieparser= require('cookie-parser')
 const cors=require('cors')
 const corsOptions = require('./config/corsOptions');
@@ -20,14 +16,13 @@ dotenv.config();
 
 const port = process.env.PORT || 3500
 console.log(process.env.NODE_ENV)
-
-
 connectDB()
 app.use(logger)
 app.use(cors(corsOptions))
 app.use(cookieparser())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use("/test", (req, res) => {
     res.send("Hello world!");
   });

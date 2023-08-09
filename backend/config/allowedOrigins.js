@@ -1,5 +1,5 @@
 const allowedOrigins=[
-    'http://localhost:3001',
+    'https://frontend-eosin-two.vercel.app',
     'wwww.netbenz.com'
     
 ]
